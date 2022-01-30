@@ -80,7 +80,8 @@ def uploader():
         return render_template('upload.html',url_0=link0,url_1=link1)
 
 if __name__ == '__main__':
-   app.run(host="0.0.0.0",debug=True)
+    #host为绑定本机所有公网ip,port为程序使用端口
+   app.run(host="0.0.0.0",port=5000,debug=True)
 '''
 #以下为测试本地文件上传代码，无视即可
 if __name__ == '__main__':
