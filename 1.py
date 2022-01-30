@@ -36,7 +36,9 @@ def upload_files(file_data,file_name):
     houzhui = os.path.splitext(file_name)[-1] #获取文件后缀
     file_name = random_file_name()+houzhui #文件名
     token = ""#填写github token
-    url = "https://api.github.com/repos/mikulo/img/contents/img/"+file_name  # 用户名、库名、路径
+    github_name = ""
+    github_Repository = ""
+    url = "https://api.github.com/repos/"+github_name+"/"+github_Repository+"/contents/img/"+file_name  # 用户名、库名、路径
     headers = {"Authorization": "token " + token}
     content = file_base64(file_data)
     data = {
@@ -53,7 +55,7 @@ def upload_files(file_data,file_name):
     re_data = json.loads(req.text)
     #print(re_data)
     #print(re_data['content']['sha'])
-    return "https://i2.wp.com/raw.githubusercontent.com/mikulo/img/master/img/"+file_name #这里添加了wordpress的免费图片代理
+    return "https://i2.wp.com/raw.githubusercontent.com/"+github_name+"/"+github_Repository+"/master/img/"+file_name #这里添加了wordpress的免费图片代理
 
 
 app = Flask(__name__)
