@@ -1,0 +1,39 @@
+<html>
+<head>
+  <title>File Upload</title>
+</head>
+<body>
+    <form action="http://152.70.239.134:5000/uploader" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file"  />
+        <input type="submit" value="提交" />
+    </form>
+    <label for="name">原始链接:</label>
+    <input type="text" id="link_0" name="link_0" required
+       minlength="4" maxlength="8" size="120" value="{{ url_0 }}">  <input type="button" value="复制" onclick="Copy0()"> <br>
+    <label for="name">BBCode:</label>
+    <input type="text" id="link_1" name="link_1" required
+       minlength="4" maxlength="8" size="120" value="{{ url_1 }}">  <input type="button" value="复制" onclick="Copy1()">    
+</body>
+</html>
+<script>
+function Copy0(){
+	var e=document.getElementById("link_0");//对象是content
+	if (e.value != "") {
+		e.select();//选择对象
+		document.execCommand("Copy");//执行浏览器复制命令
+		alert("复制成功！");
+	}else{
+		alert("内容为空！");
+	}
+}
+function Copy1(){
+	var e=document.getElementById("link_1");//对象是content
+	if (e.value != "") {
+		e.select();//选择对象
+		document.execCommand("Copy");//执行浏览器复制命令
+		alert("复制成功！");
+	}else{
+		alert("内容为空！");
+	}
+}
+</script>
